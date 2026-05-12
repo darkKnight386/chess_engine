@@ -53,11 +53,10 @@ body {
 }
 
 .square.light {
-  background-color: #f0d9b5;
+  background-color: #e2e8f0; /* light gray/white */
 }
-
 .square.dark {
-  background-color: #b58863;
+  background-color: #2563eb; /* deeper blue */
 }
 
 .square.selected {
@@ -83,7 +82,11 @@ body {
 }
 
 .piece {
+  width: 90%;          /* try 60-70% */
+  height: 90%;
+  object-fit: contain;
   pointer-events: none;
+  user-select: none;
 }
 
 .piece.draggable {
