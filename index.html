@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess - Play vs AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <div id="board-container">
+      <div id="board"></div>
+    </div>
+    <div id="sidebar">
+      <h2>Chess AI</h2>
+      <div id="game-controls">
+        <div class="control-group">
+          <label>Play as:</label>
+          <button id="play-white" class="color-btn active">White</button>
+          <button id="play-black" class="color-btn">Black</button>
+        </div>
+        <div class="control-group">
+          <label>Engine strength:</label>
+          <select id="strength">
+            <option value="1">Easy (depth 1)</option>
+            <option value="3" selected>Medium (depth 3)</option>
+            <option value="5">Hard (depth 5)</option>
+          </select>
+        </div>
+        <button id="new-game">New Game</button>
+      </div>
+      <div id="status">White's turn</div>
+      <div id="move-history">
+        <h3>Move History</h3>
+        <div id="history-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Promotion modal -->
+  <div id="promotion-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Choose promotion</h3>
+      <div class="promo-options">
+        <button class="promo-btn" data-piece="Q">♕ Queen</button>
+        <button class="promo-btn" data-piece="R">♖ Rook</button>
+        <button class="promo-btn" data-piece="B">♗ Bishop</button>
+        <button class="promo-btn" data-piece="N">♘ Knight</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
