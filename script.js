@@ -5,14 +5,14 @@
  * Strength: adjustable depth
  ********************************************/
 
+// 
 // ---------- Board & Game State ----------
-const PIECE_TYPES = ['K', 'Q', 'R', 'B', 'N', 'P'];
-const COLORS = ['w', 'b'];
-const UNICODE_PIECES = {
-  wK: '♔', wQ: '♕', wR: '♖', wB: '♗', wN: '♘', wP: '♙',
-  bK: '♚', bQ: '♛', bR: '♜', bB: '♝', bN: '♞', bP: '♟'
-};
-
+// const PIECE_TYPES = ['K', 'Q', 'R', 'B', 'N', 'P'];
+// const COLORS = ['w', 'b'];
+// const UNICODE_PIECES = {
+//   wK: '♔', wQ: '♕', wR: '♖', wB: '♗', wN: '♘', wP: '♙',
+//   bK: '♚', bQ: '♛', bR: '♜', bB: '♝', bN: '♞', bP: '♟'
+// };
 class GameState {
   constructor() {
     this.board = Array(8).fill(null).map(() => Array(8).fill(null));
@@ -564,13 +564,14 @@ function renderBoard() {
 
       const piece = game.board[r][c];
       if (piece) {
-        const span = document.createElement('span');
-        span.className = 'piece';
-        span.textContent = UNICODE_PIECES[piece.color + piece.type];
-        span.draggable = (piece.color === playerColor && game.turn === playerColor && !gameOver);
-        span.addEventListener('dragstart', handleDragStart);
-        span.addEventListener('dragend', handleDragEnd);
-        square.appendChild(span);
+        const img = document.createElement('img');
+        img.className = 'piece';
+        img.src = `images/${piece.color}${piece.type}.png`; // e.g., images/wN.png
+        img.alt = piece.color + piece.type;
+        img.draggable = (piece.color === playerColor && game.turn === playerColor && !gameOver);
+        img.addEventListener('dragstart', handleDragStart);
+        img.addEventListener('dragend', handleDragEnd);
+        square.appendChild(img);
       }
 
       square.addEventListener('click', () => handleSquareClick(r, c));
